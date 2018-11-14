@@ -1,0 +1,14 @@
+version: '3'
+services:
+  eureka:
+    build:
+      context: ./eureka
+    ports:
+      - "8762:8762"
+  module-one:
+    build:
+      context: ./module-one
+    ports:
+      - 8080:8080
+    depends_on:
+      - eureka
